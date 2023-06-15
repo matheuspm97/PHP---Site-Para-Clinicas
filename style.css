@@ -1,0 +1,46 @@
+#filter_btn {
+  display: none;
+}
+
+.checkbox-col {
+  margin-left: 10px;
+}
+
+.button-col {
+  margin-right: 60px;
+}
+.form-check-label {
+  position: absolute;
+  top: 8px;
+  border: 1.5px solid #09325e;
+  background-color: #888686;
+  width: 45px;
+  height: 20px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+ 
+  transition: all .25s ease-in-out;
+  cursor: pointer;
+}
+
+.slider {
+  position: relative;
+  border: 2px solid #09325e;
+  background-color: rgb(160, 160, 160);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: all .25s ease-in-out;
+}
+
+#filter_btn:checked ~ .form-check-label {
+  
+
+  background-image: radial-gradient(#00BFFF,#1E90FF,#4169E1,#0000FF);
+}
+
+#filter_btn:checked ~ .form-check-label .slider {
+  transform: translateX(15px);
+  background-color: #1561b3
+}

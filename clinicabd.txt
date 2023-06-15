@@ -1,0 +1,96 @@
+CREATE DATABASE Clinicabd;
+
+USE Clinicabd;
+
+CREATE TABLE Pessoa (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  idade INT NOT NULL,
+  cpf VARCHAR(14) NOT NULL UNIQUE,
+  sexo VARCHAR(1) NOT NULL,
+  telefone VARCHAR(14) NOT NULL,
+  email VARCHAR(50) NOT NULL UNIQUE,
+  senha VARCHAR(50) NOT NULL,
+  status INT NOT NULL
+); -- OBS: status recebe 1=paciente, 2=funcionário
+
+CREATE TABLE Medico (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  crm VARCHAR(14) NOT NULL UNIQUE,
+  telefone VARCHAR(14) NOT NULL,
+  especialidade VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Consulta (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  medico_id INT NOT NULL,
+  paciente_id INT NOT NULL,
+  horario DATETIME NOT NULL,
+  procedimento VARCHAR(50) NOT NULL,
+  motivo TEXT,
+  status INT NOT NULL DEFAULT 1,
+  FOREIGN KEY (medico_id) REFERENCES Medico(id),
+  FOREIGN KEY (paciente_id) REFERENCES Pessoa(id)
+); -- OBS: status recebe 1=agendada (default), 0=cancelada
+
+CREATE TABLE Exame (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome_exame VARCHAR(50) NOT NULL,
+  id_pessoa INT NOT NULL,
+  medico_resp INT NOT NULL,
+  status INT NOT NULL DEFAULT 1,
+  FOREIGN KEY (medico_resp) REFERENCES Medico(id),
+  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id)
+); -- OBS: status recebe 1=indisponível (default), 2=disponível
+
+CREATE TABLE Procedimento (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome_procd VARCHAR(50) NOT NULL,
+  exame INT NOT NULL DEFAULT 0
+); -- OBS: exame recebe 0=não (default), 1=sim
+
+
+
+INSERT INTO Pessoa (nome, idade, cpf, sexo, telefone, email, senha, status) VALUES
+('João Silva', 35, '123.456.789-10', 'M', '(11) 91234-5678', 'joao.silva@email.com', 'senhajoao', 1),
+('Maria Souza', 28, '987.654.321-10', 'F', '(11) 98765-4321', 'maria.souza@email.com', 'senhamaria', 1),
+('Pedro Alves', 45, '456.123.789-10', 'M', '(11) 91234-5678', 'pedro.alves@email.com', 'senha123', 2),
+('Ana Oliveira', 50, '789.321.456-10', 'F', '(11) 98765-4321', 'ana.oliveira@email.com', 'senha456', 2),
+('Lucas Santos', 25, '159.753.852-10', 'M', '(11) 91234-5678', 'lucas.santos@email.com', 'senha789', 1);
+
+
+
+INSERT INTO Medico (nome, crm, telefone, especialidade) VALUES
+('José Carlos', '12345-SP', '(11) 91234-5678', 'Cardiologia'),
+('Aline Rodrigues', '98765-SP', '(11) 98765-4321', 'Ginecologia'),
+('Felipe Silva', '45678-SP', '(11) 91234-5678', 'Dermatologia'),
+('Patricia Souza', '45622-SP', '(11) 98765-4321', 'Pediatria'),
+('Ricardo Almeida', '15975-SP', '(11) 91234-5678', 'Ortopedia');
+
+
+
+INSERT INTO Consulta (medico_id, paciente_id, horario, procedimento, motivo, status) VALUES
+(1, 1, '2023-05-04 09:00:00', 'Consulta Cardiologia', 'Dor no peito', 1),
+(2, 2, '2023-05-05 10:00:00', 'Consulta Ginecologia', 'Rotina', 1),
+(3, 3, '2023-05-06 11:00:00', 'Consulta Dermatologia', 'Acne', 1),
+(4, 4, '2023-05-07 12:00:00', 'Consulta Pediatria', 'Rotina', 1),
+(5, 5, '2023-05-08 13:00:00', 'Consulta Ortopedia', 'Fratura no braço', 1);
+
+
+
+INSERT INTO Exame (nome_exame, id_pessoa, medico_resp, status) VALUES
+('Hemograma completo', 1, 1, 1),
+('Ultrassonografia', 2, 2, 2),
+('Tomografia', 3, 3, 1),
+('Raio-X', 4, 4, 2),
+('Ressonância magnética', 5, 5, 1);
+
+
+
+INSERT INTO Procedimento (nome_procd, exame) VALUES
+('Consulta Médica', 0),
+('Consulta Odontológica', 0),
+('Raio-X', 1),
+('Ultrassom', 1),
+('Eletrocardiograma', 1);
