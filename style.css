@@ -10,37 +10,60 @@
   margin-right: 60px;
 }
 .form-check-label {
-  position: absolute;
-  top: 8px;
-  border: 1.5px solid #09325e;
+  position: relative;
   background-color: #888686;
-  width: 45px;
-  height: 20px;
-  border-radius: 40px;
+  width: 70px;
+  height: 35px;
+  border-radius: 45px;
+  padding: 4px;
   display: flex;
   align-items: center;
- 
-  transition: all .25s ease-in-out;
+  transition: all .2s ease-in-out;
   cursor: pointer;
 }
 
 .slider {
   position: relative;
-  border: 2px solid #09325e;
-  background-color: rgb(160, 160, 160);
+  
+  background-color: #cecdcd;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  transition: all .25s ease-in-out;
+  width: 28px;
+  height: 28px;
+  transition: all .2s ease-in-out;
 }
 
 #filter_btn:checked ~ .form-check-label {
-  
-
-  background-image: radial-gradient(#00BFFF,#1E90FF,#4169E1,#0000FF);
+  background-color:#1E90FF;
 }
 
 #filter_btn:checked ~ .form-check-label .slider {
-  transform: translateX(15px);
-  background-color: #1561b3
+  transform: translateX(35px);
+  background-color: #cecdcd
+}
+
+<!--sidebar-->
+
+#body-row {
+  margin-left:0;
+  margin-right:0;
+}
+#sidebar-container {
+  min-height: 100vh;
+  background-color: #212529;
+  padding: 0;
+}
+
+/* Sidebar sizes when expanded and collapsed */
+.sidebar-expanded {
+  width: 200px;
+}
+
+.sidebar-collapsed {
+  width: 60px;
+}
+
+/* Menu item */
+#sidebar-container .list-group a {
+  height: 50px;
+  color: white;
 }
