@@ -76,12 +76,12 @@ Function filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, $stat
     }
 
     // Verifica se o botão de filtrar por status foi clicado
-    if (isset($_POST['filtrar'])) {
+    /*if (isset($_POST['filtrar'])) {
     $statusFiltro = $_POST['status_filtro'];
     if ($statusFiltro == 'agendada') {
         $sql .= " AND c.status = 1";
     }
-    }
+    }*/
     $result = mysqli_query($conn, $sql);
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
