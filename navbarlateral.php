@@ -1,3 +1,8 @@
+<?php
+require_once('config.php');
+require_once('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +33,7 @@
                     <span class="menu-collapsed">Dashboard</span>
                     <span class="submenu-icon ml-auto"></span>
                 </a>
+                <?php if ($_SESSION['status'] == 2): ?>
                 <a href="listar_medico.php"
                     class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                     <span><i class="bi bi-heart-pulse fs-5"></i></span>
@@ -56,6 +62,7 @@
                     <span class="fa fa-calendar fa-fw mr-3"></span>
                     <span class="menu-collapsed">Procedimentos</span>
                 </a>
+                <?php endif; ?>
                 <a href="buscar_consultas.php" class="bg-dark list-group-item list-group-item-action">
                     <span><i class="bi bi-calendar-check fs-5"></i></span>
                     <span class="fa fa-envelope-o fa-fw mr-3"></span>
