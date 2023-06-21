@@ -12,8 +12,9 @@ clicarBotaoStatus($conn);
 // Define os filtros iniciais vazios
 $nomePaciente = "";
 $nomeMedico = "";
+$dataConsulta="";
 
-$consultas = filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, 'status_filtro');
+$consultas = filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, 'status_filtro', $dataConsulta);
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +39,10 @@ $consultas = filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, '
                     <form method="POST" style="margin-bottom: 20px;">
                         <div class="form-row">
                             <div class="col">
+                                <input type="date" name="data_consulta" class="form-control"
+                                    value="<?php echo $horario; ?>">
+                            </div>
+                            <div class="col">
                                 <input type="text" name="nome_paciente" class="form-control"
                                     placeholder="Nome do Paciente" value="<?php echo $nomePaciente; ?>">
                             </div>
@@ -45,27 +50,6 @@ $consultas = filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, '
                                 <input type="text" name="nome_medico" class="form-control" placeholder="Nome do Médico"
                                     value="<?php echo $nomeMedico; ?>">
                             </div>
-                            <!--<div class="filter-btn-container">
-                            <button id="filter-btn" class="btn" type="button" data-toggle="collapse"
-                                data-target="#filter-options" aria-expanded="false" aria-controls="filter-options">
-                                <span> Status</span>
-                            </button>
-                            <div id="filter-options" class="collapse">
-                                <form method="POST">
-                                    <div class="form-group">
-                                        <select class="form-control" name="status_filtro" id="status_filtro">
-                                            <option value="todo">Todos</option>
-                                            <option value="agendada">Agendadas</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <button type="submit" name="filtrar" class="btn btn-primary">Filtrar</button>
-                        </div>
-                    </div>
-                </form>-->
                             <div class="col">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" role="switch" id="filter_btn">

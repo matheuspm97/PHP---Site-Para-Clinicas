@@ -48,16 +48,16 @@ function clicarBotaoStatus($conn){ //verifica se botao de status foi clicado e a
     }
 }
 
-Function filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, $statusFiltro){
+Function filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, $statusFiltro, $dataConsulta){
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verifica se o botão de filtrar foi clicado
     if (isset($_POST['filtrar'])) {
         // Obtém os valores dos filtros
         $nomePaciente = $_POST['nome_paciente'];
         $nomeMedico = $_POST['nome_medico'];
+        $dataConsulta = $_POST['data_consulta'];
     }
 }
-
 // Monta a query de busca com os filtros
     $sql = "SELECT c.*, p.nome AS paciente_nome, m.nome AS medico_nome
         FROM Consulta c 
@@ -67,7 +67,10 @@ Function filtrarConsultas($conn, $id, $status, $nomePaciente, $nomeMedico, $stat
     if ($status == 1) {
     $sql .= " WHERE c.paciente_id = $id";
     }
-
+    
+    if (!empty($dataConsulta)) {
+        $sql .= " AND DATE(c.horario) = '$dataConsulta'";
+    }
     if (!empty($nomePaciente)) {
     $sql .= " AND p.nome LIKE '%$nomePaciente%'";
     }
