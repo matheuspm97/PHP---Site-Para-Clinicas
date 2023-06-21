@@ -25,8 +25,8 @@
   position: relative;
   background-color: #7a7a7a;
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
+  width: 29px;
+  height: 29px;
   transition: all .2s ease-in-out;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@
 }
 
 #filter_btn:checked ~ .form-check-label .slider {
-  transform: translateX(35px);
+  transform: translateX(25px);
   background-color: #8d8c8c;
 }
 
