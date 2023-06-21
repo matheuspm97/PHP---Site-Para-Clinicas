@@ -35,7 +35,7 @@ logout();
         <div class="container row mx-auto g-4">
         <?php if ($_SESSION['status'] == 2): ?>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Novo Funcionário</h5>
@@ -45,7 +45,7 @@ logout();
                 </div>
             </div>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Pacientes</h5>
@@ -55,7 +55,7 @@ logout();
                 </div>
             </div>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Médicos</h5>
@@ -65,7 +65,7 @@ logout();
                 </div>
             </div>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Agendar Consulta</h5>
@@ -75,7 +75,7 @@ logout();
                 </div>
             </div>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Procedimentos</h5>
@@ -86,7 +86,7 @@ logout();
             </div>
             <?php endif; ?>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Exames</h5>
@@ -96,7 +96,7 @@ logout();
                 </div>
             </div>
 
-            <div class="col-6 col-lg-3 col-md-4 col-xxl-2">
+            <div class="col-6 col-lg-3 col-md-4 col-xxl-3">
                 <div class="card">
                 <div class="card-body position-relative d-flex flex-column" >
                 <h5 class="text-center">Consultas</h5>

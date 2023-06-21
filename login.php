@@ -31,24 +31,6 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Médica - Login</title>
     <style>
-    .cabecalho {
-        background-color: rgb(112, 128, 144, 0.9);
-        /* Substitua pelo URL da sua imagem de fundo */
-        background-size: cover;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
     h2 {
         font-size: 30px;
         font-weight: bold;
@@ -65,20 +47,15 @@ if (isset($_POST['login'])) {
 
 <body>
 <?php include('navbar.php'); ?>
-    <div class="cabecalho">
-        <div class="row mt-5">
-            <h1 class="display-4">Bem-vindo à Clínicas Mariano</h1>
-        </div>
-    </div>
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-12">
                 <!-- Adicionado a classe "text-center" -->
-                <h2>Faça o login para continuar:</h2>
+                <h2>Faça o login para continuar!</h2>
             </div>
         </div>
-        <div class="row justify-content-center mt-3">
-            <div class="col-md-4">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-4 col-md-5 col-xxl-4 col-sm-7">
                 <div class="card">
                     <div class="card-body">
                         <form method="POST">
